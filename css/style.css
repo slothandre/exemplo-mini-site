@@ -1,0 +1,216 @@
+/* Regras CSS para o Site de Exemplo
+O que você fizer aqui irá formatar TODAS as páginas HTML conectadas com este arquivo. */
+@font-face {
+    font-family: 'God of War';
+    src: url('../fontes/GODOFWAR.TTF') format('truetype');
+}
+* {
+    box-sizing: border-box;
+}
+body {
+    background-image: url(../imagens/tarde.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+h2 {
+    background-image: url(../imagens/oriental-tiles.png);
+    color: #FFF;
+    padding: 10px;
+    border-left: 20px solid #ff7300;
+    border-right: 20px solid #0e1f87;
+}
+#caixotada {
+    background-color: #ffffffa9;
+    margin: 50px auto;
+    padding: 20px;
+    width: 90vw;
+    border-radius: 10px;
+    box-shadow: #ff7300 0px 0px 50px;
+    max-width: 1100px;
+    min-width: 600px;
+}
+img {
+    max-width: 100%;
+}
+h1 {
+    color: #ffffffa9;
+    background: linear-gradient(to left, #0e1f87, transparent, #ff7300);
+    border-radius: 30px 10px;
+    padding: 10px;
+    text-shadow: 2px 2px 5px #000;
+    font-family: 'God of War', 'Rubik Iso', Arial, cursive;
+    text-align: center;
+}
+.centralizar { 
+    text-align: center;    
+}
+.centralizar img {
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+}
+.sombra_texto { 
+    text-shadow: 2px 2px 3px #000; 
+}
+.borda_arredondada { 
+    border-radius: 8px; 
+}
+.destaque {
+    background-color: #FF0;
+    padding: 1px 4px;
+    border: 2px solid #F00;
+}
+
+/* Regras para o menu e seus links */
+nav {
+    text-align: center;
+}
+/* Regra de estado inicial do link
+Seletor DESCENDENTE */
+nav a {
+    display: inline-block;
+    color: #ffffffa9;
+    background-color: #ff7300;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px;
+    font-family: 'God of War', Arial;
+    width: 33.33%;
+    transition: all 0.2s linear;
+}
+/* Regra de acionamento do link
+Seletor DESCENDENTE + PSEUDO-CLASSE */
+nav a:hover,
+nav a:focus {
+    background-color: #0e1f87;
+    transform: translateY(-10px);
+}
+nav a:active {
+    background-color: #0e1f87;
+}
+figure {
+    text-align: center;
+    margin: 0 auto;
+    /* Tornando o elemento referência para o posicionamento */
+    position: relative;
+    width: 419px;
+}
+figcaption {
+    width: 100%;
+    font-weight: bold;
+    background-color: #00ffff83;
+    padding: 5px;
+    text-shadow: 1px 1px 3px #666;
+    /* Tornando o elemento livre para posicionamento */
+    position: absolute;
+    /* Coordenadas */
+    bottom: 25px;
+}
+figure  {
+    filter: grayscale(1);
+    transition: all 0.3s linear;
+}
+figure:hover {
+    filter: none;
+    transform: scale(107%);
+    cursor: cell;
+}
+ul {
+    font-family: Impact;
+}
+ul li {
+    color: #F00;
+}
+ul li:first-child {
+    color: #00F;
+}
+ul li:last-child {
+    color: #0F0;
+}
+ul li:nth-child(2) {
+    color: #000;
+}
+/* odd - Ímpar                even - Par */
+/* ul li:nth-child(odd) {
+    background-color: lightcoral;
+}
+ul li:nth-child(even) {
+    background-color: #FF0;
+} */
+ul li:nth-child(3n) {
+    background-color: lawngreen;
+}
+.flutuar {
+    float: left;
+    margin: 10px;
+}
+/* Etapa 1: regra de animação */
+@keyframes animaCores {
+    /* De (como inicia) */
+    from {
+        background-color: #FF0;
+        color: #00F;
+    }
+    /* Para (como termina) */
+    to {
+        background-color: #00F;
+        color: #FF0;
+    }
+}
+/* Etapa 2: aplicar a animação em algum(ns) elemento(s) */
+.subtitulo,
+h3 {
+    animation-name: animaCores;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+#banner {
+    width: 450px;
+    margin: auto;
+    border: 1px solid #000;
+    overflow: hidden;
+    position: relative;
+}
+#banner img {
+    animation-name: animaBanner;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+    animation-direction: alternate;
+}
+@keyframes animaBanner {
+    from {
+        transform: translateX(-128px);
+    }
+    to {
+        transform: translateX(450px) rotateZ(360deg);
+    }
+}
+#banner p {
+    will-change: transform;
+    margin: auto;
+    font-weight: bold;
+    text-shadow: 1px 1px 1px #000;
+    font-size: 30px;
+    color: #FFF;
+    background-color: #0000008a;
+    text-align: center;
+    animation-name: animaCSS;
+    animation-duration: 1s;
+    animation-direction: alternate;
+    animation-iteration-count: infinite;
+    position: absolute;
+    animation-timing-function: linear;
+    bottom: 40px;
+    left: 0;
+    right: 0;
+}
+@keyframes animaCSS {
+    from {
+
+    }
+    to {
+        transform: scale(1.5);
+        background-color: #0000ff8a;
+    }
+}
